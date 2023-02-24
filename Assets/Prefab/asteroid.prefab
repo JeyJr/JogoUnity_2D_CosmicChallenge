@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7426887758578051617}
   - component: {fileID: 3555471160439675931}
   - component: {fileID: 5054366246017009407}
-  - component: {fileID: -7482654772900661812}
+  - component: {fileID: 1754162970275810664}
+  - component: {fileID: 2789927614778698729}
   m_Layer: 0
   m_Name: asteroid
   m_TagString: Enemy
@@ -113,9 +114,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &-7482654772900661812
+--- !u!114 &1754162970275810664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,23 +125,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5521728575792752201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d28804b8989dd4aad545a79319ad18, type: 3}
+  m_Script: {fileID: 11500000, guid: 611ad0a121328874eb036ce677381de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPooler: {fileID: 0}
-  boxEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -7482654772900661812}
-        m_TargetAssemblyTypeName: EnemyBehavior, Assembly-CSharp
-        m_MethodName: RemoveComponents
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  box: []
+--- !u!114 &2789927614778698729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521728575792752201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd5e1cc152ad13479b37468ebe86de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRB: {fileID: 5054366246017009407}
