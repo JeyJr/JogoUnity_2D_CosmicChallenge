@@ -6,6 +6,9 @@ using UnityEngine;
 public enum GameState { MainMenu, StartMatch, EndGame }
 public class GameController : GameData, ISetGameState
 {
+    [SerializeField] private readonly float delayToStartSpawn = 5;
+    public float DelayToStartSpawn => delayToStartSpawn;
+
     private static GameController instance;
     private void Awake()
     {
@@ -43,20 +46,28 @@ public class GameController : GameData, ISetGameState
     public void MainMenu()
     {
         GameEvent.GetInstance().MainMenu();
+        PlayerPrefs.Save();
     }
 
     public void StartMatch()
     {
         GameEvent.GetInstance().StartMatch();
+        StartCoroutine(StartSpawn());
+    }
+
+    IEnumerator StartSpawn()
+    {
+        yield return new WaitForSeconds(DelayToStartSpawn);
+        GameEvent.GetInstance().StartSpawn();
     }
 
     public void EndGame()
     {
         GameEvent.GetInstance().EndGame();
+        PlayerPrefs.Save();
     }
 
     /*PENDENCIAS: 
         - CONTROLE DE AUDIO
-        - CONTROLE DA DIFICULDADE
      */
 }

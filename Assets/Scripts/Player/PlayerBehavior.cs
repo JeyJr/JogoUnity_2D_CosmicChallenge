@@ -28,6 +28,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             hitEnemy = true;
             StartCoroutine(StartEndGame());
+            GameEvent.GetInstance().PlaySFXClip(SFXClip.hit);
         }
     }
 

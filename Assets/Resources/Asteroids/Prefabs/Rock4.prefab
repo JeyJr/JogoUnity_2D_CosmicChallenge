@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8516310460052951830}
   - component: {fileID: -6194489836585188677}
   - component: {fileID: 4065122381936893727}
+  - component: {fileID: -822744207501069138}
   m_Layer: 0
   m_Name: Rock4
   m_TagString: Enemy
@@ -141,3 +142,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  speedLimit: 0
+  speedLimitValueBaseCal: 10
+--- !u!114 &-822744207501069138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104577452317400243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4322fa6bc45db1c4b9acd1ff4b726392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startXPosition: 0
+  position: {x: 10, y: 50}
+  randomScale: {x: 3, y: 8}
+  randomRot: {x: 0, y: 360}

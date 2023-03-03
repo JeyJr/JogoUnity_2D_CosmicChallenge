@@ -19,13 +19,12 @@ public class GameData : MonoBehaviour
         "Astronômico",
         "Deus"
     };
-    public string GameModeName => gameModeName[gameModeValue];
-
 
     [Header("BoxControl")]
     [SerializeField] private int collectedItems = 0;
     [SerializeField] private int maxItems = 1;
     public int CollectedItems => collectedItems;
+    public int MaxItems => maxItems;
 
     [Header("TimeControl")]
     [SerializeField] private TimeSpan recordTime;
@@ -33,12 +32,14 @@ public class GameData : MonoBehaviour
     public TimeSpan RecordTime => recordTime;
 
     private readonly string recordKey = "record";
-    
+    private readonly string gameModeKey = "gameMode";
+
 
 
     private void Start()
     {
         CheckSavedRecord();
+        CheckSaveGameMode();
         SetItemsEvent();
     }
 
@@ -86,6 +87,10 @@ public class GameData : MonoBehaviour
         recordTime = TimeSpan.Parse(PlayerPrefs.GetString(recordKey));
     }
 
+    /// <summary>
+    /// Verifica e salva o novo recorde
+    /// </summary>
+    /// <returns>Retorna o valor atual do recorde formatado mm:ss </returns>
     public string CheckNewRecord()
     {
         if(collectedItems >= maxItems)
@@ -119,16 +124,64 @@ public class GameData : MonoBehaviour
 
     #endregion
 
+    #region GameMode: CheckSaveGameMode, AddGameModeValue, SubGameModeValue, GetGameModeValue, GetGameModeName, GetGameModeLength
+    
+
+    private void CheckSaveGameMode()
+    {
+        if (!PlayerPrefs.HasKey(gameModeKey))
+        {
+            PlayerPrefs.SetInt(gameModeKey, 4);
+        }
+
+        gameModeValue = PlayerPrefs.GetInt(gameModeKey);
+    }
+
+    public void AddGameModeValue()
+    {
+        if(gameModeValue < gameModeName.Length - 1)
+        {
+            gameModeValue++;
+        }
+        PlayerPrefs.SetInt(gameModeKey, gameModeValue);
+    }
+
+    public void SubGameModeValue()
+    {
+        if(gameModeValue > 0)
+        {
+            gameModeValue--;
+        }
+
+        PlayerPrefs.SetInt(gameModeKey, gameModeValue);
+    }
+
+    public int GetGameModeValue()
+    {
+         return gameModeValue;
+    }
+
+    public string GetGameModeName()
+    {
+        return gameModeName[gameModeValue];
+    }
+
+    public int GetGameModeLength()
+    {
+        return gameModeName.Length;
+    }
+    #endregion
+
+    #region Setup: GetMoveSpeed, GetSpawnSpeed
     public float GetMoveSpeed(float currentValue)
     {
-        float gameMode = gameModeValue + 1;
-        return currentValue + (gameMode * .3f);
+        return currentValue + gameModeValue;
     }
 
     public float GetSpawnSpeed(float currentValue) 
     {
-        float gameMode = gameModeValue + 1;
-        return currentValue + (gameMode * .2f);
+        return currentValue - (gameModeValue * .2f);
     }
+    #endregion
 
 }

@@ -9,7 +9,6 @@ public class ItemCollisionControl : MonoBehaviour, IPoolReference
 
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform playerPosition;
-
     private bool playerGrabbedItem = false;
 
     public void PoolReference(IReturnToPool pool)
@@ -28,6 +27,7 @@ public class ItemCollisionControl : MonoBehaviour, IPoolReference
             AddSpringJoint(other.GetComponent<Rigidbody>());
 
             GameEvent.GetInstance().CollectItems();
+            GameEvent.GetInstance().PlaySFXClip(SFXClip.getItem);
         }
     }
 
@@ -54,8 +54,8 @@ public class ItemCollisionControl : MonoBehaviour, IPoolReference
         spring.connectedBody = rbTarget;
         spring.spring = 10;
         spring.damper = 10;
-        spring.minDistance = 3;
-        spring.maxDistance = 10;
+        spring.minDistance = 5;
+        spring.maxDistance = 12;
     }
 
     private void RemoveSpringJoint() => Destroy(GetComponent<SpringJoint>());

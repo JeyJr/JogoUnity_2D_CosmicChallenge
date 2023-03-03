@@ -5,19 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class BehaviorOfSpawnedObjects : MonoBehaviour, ISetSpeedLimit
+public class BehaviorOfSpawnedObjects : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    private float maxSpeed = 3;
-
-    public void SetSpeedLimit(float maxSpeedLimit)
-    {
-        maxSpeed += maxSpeedLimit;
-    }
+    [SerializeField] private float speedLimit = 0;
+    [SerializeField] private float speedLimitValueBaseCal = 3;
 
     private void OnEnable()
     {
-        rb = GetComponent<Rigidbody>();        
+        rb = GetComponent<Rigidbody>();
+        speedLimit = GameController.GetInstance().GetMoveSpeed(speedLimitValueBaseCal);
     }
 
     private void FixedUpdate()
@@ -28,7 +25,7 @@ public class BehaviorOfSpawnedObjects : MonoBehaviour, ISetSpeedLimit
     private void SetSpeedLimit()
     {
         Vector3 vel = rb.velocity;
-        vel.y = Mathf.Clamp(vel.y, -maxSpeed, maxSpeed);
+        vel.y = Mathf.Clamp(vel.y, -speedLimit, speedLimit);
         rb.velocity = vel;
     }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8326160973724641645}
   - component: {fileID: -7959948959062595400}
   - component: {fileID: 1507067100610083392}
+  - component: {fileID: -4287043743454007088}
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Enemy
@@ -141,3 +142,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  speedLimit: 0
+  speedLimitValueBaseCal: 7
+--- !u!114 &-4287043743454007088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416367696770328264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4322fa6bc45db1c4b9acd1ff4b726392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startXPosition: 0
+  position: {x: 10, y: 50}
+  randomScale: {x: 2, y: 5}
+  randomRot: {x: 0, y: 360}
