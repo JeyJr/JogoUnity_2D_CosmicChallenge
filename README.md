@@ -9,7 +9,7 @@ Não é necessário ter a mesma versão da Unity para abrir o projeto, mas é re
 https://play.google.com/store/apps/details?id=com.JeyJuniorGames.CosmicChallenge
 
 
-![GamePlay](https://imgs-projetos-jeyjr.netlify.app/gamesunity/cosmicchallenge-game/GamePlay.png)
+![GamePlay](https://imgs-projetos-jeyjr.netlify.app/imgs/Unity_CosmicChallenge/principal.png)
 
 
 ---
@@ -36,9 +36,6 @@ https://github.com/JeyJr/2D_CosmicChallenge/tree/main/Assets/Scenes
 
 
 Em seguida, clique duas vezes no arquivo e selecione a versão da Unity desejada para carregar o projeto. Todos os arquivos de base da Unity serão implementados automaticamente.
-
-
-![Unity](https://imgs-projetos-jeyjr.netlify.app/gamesunity/cosmicchallenge-game/Unity.png)
 
 ---
 ## Uso:
